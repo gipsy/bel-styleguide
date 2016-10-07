@@ -1,0 +1,22 @@
+@import true
+
+@import ../settings/settings.core
+@import ../tools/tools.rem
+
++test-module("[function] inuit-rem")
+  +test("it should convert a pixel value to it's rem equivalent")
+    $test: inuit-rem(18px)
+    $expect: 1.125rem
+
+    +assert-equal($test, $expect, "Returns the rem equivalant for pixel value")
+
+
++test-module("[mixin] inuit-rem")
+  +test("it should output a property with a rem value converted from a pixel value")
+    +assert
+      +output
+        +inuit-rem(padding, 10px)
+
+
+      +expect
+        padding: 0.625rem

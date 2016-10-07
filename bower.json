@@ -1,0 +1,9 @@
+{
+  "name": "bellroy",
+  "dependencies": {
+    "flamsteed": "latest",
+    "hogan": "latest",
+    "jquery": "jquery#1.11",
+    "requirejs": "~2.1.11"
+  }
+}

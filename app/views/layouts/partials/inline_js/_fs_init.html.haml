@@ -1,0 +1,9 @@
+:javascript
+  window.bl.fs.log(function(){
+    return {
+      url: window.location.href,
+      referrer: document.referrer,
+      viewport: document.documentElement.clientWidth,
+      variant: window.bl.getCookie("_v")
+    };
+  }());

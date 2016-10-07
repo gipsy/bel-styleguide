@@ -1,0 +1,117 @@
+/[if lt IE 9]
+  :javascript
+    -# document.createElement('header');
+    -# document.createElement('nav');
+    -# document.createElement('section');
+    -# document.createElement('article');
+    -# document.createElement('aside');
+    -# document.createElement('footer');
+    -# document.createElement('figure');
+    -# document.createElement('figurecap');
+    -# document.createElement('hgroup');
+    -# document.createElement('time');
+    -# document.createElement('picture');
+
+:javascript
+  // Setup our namespace
+  window.bl = window.bl || {};
+
+  // Allow legacy apps to add their own properties
+  window.bl.tracking = window.bl.tracking || {};
+  window.bl.supports = window.bl.supports || {};
+
+  // Setting up Adblock checker
+  window.bl.isAdblockActive = true;
+
+  // Allow apps to pass in requirejs configuration
+  window.bl.require = {
+    paths: {},
+    shim: {}
+  }
+
+  window.bl.analytics = window.bl.analytics || {
+    utag_data: {},
+    dataLayer: {},
+    eventBuffer: [],
+    api: {
+      trackEvent: function(data){
+        window.bl.analytics.eventBuffer.push(data);
+      }
+    }
+  };
+
+  // Utility cookie retrieval function
+  window.bl.getCookie = function (name) {
+    return unescape(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + escape(name).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
+  };
+
+  // Test for LocalStorage support (and space)
+  window.bl.supports.localStorage = 'localStorage' in window && (function() {
+    try {
+      localStorage.setItem("test", "test");
+      localStorage.removeItem("test");
+      return true;
+    } catch(e){
+      return false;
+    }
+  }());
+
+  window.bl.supports.woff2 = (function(){
+    if (typeof window.FontFace != "function") return false;
+
+    var f = new window.FontFace("t", 'url( "data:application/font-woff2," ) format( "woff2" )');
+
+    f.load().catch(function() {});
+    return f.status == 'loading';
+  }());
+
+  // Setup js error logging
+  var _trackJs = {
+    token: '3cd28f4c5df14f6e9fffa815ed7712b0',
+    console: {
+      display: true
+    },
+    userId: window.bl.getCookie('blUid')
+  };
+
+  // Switch no-js class for js
+  (function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+
+  // Initialise a flamsteed buffer
+  window.bl.fs = {
+    buffer: [],
+    now: function(){return (Date.now ? Date.now() : new Date().getTime());},
+    log : function(x){this.buffer.push({e: x, t: this.now()})},
+    time: function(x){!!window.performance && !!window.performance.now && this.buffer.push({e: x, t: this.now()})}
+  };
+
+= yield :head_js
+
+:javascript
+  // Alias for utag_data required by Tealium
+  window.utag_data = window.bl.analytics.utag_data;
+
+= render 'layouts/partials/inline_js/load_css'
+-# = render 'layouts/partials/inline_js/krux'
+-# = render 'layouts/partials/inline_js/a9'
+-# = render 'layouts/partials/inline_js/criteo'
+-# = render 'layouts/partials/inline_js/recaptcha'
+
+:javascript
+  // Google analytics
+  (function(d,t,c){
+    var filepath = d.cookie.match(/blDev/) ? "analytics.dev.js?" +c.getTime() : "analytics.min.js",
+        g=d.createElement(t),
+        s=d.getElementsByTagName(t)[0];
+    g.src="//assets.staticbl.com/analytics/" + filepath;
+    s.parentNode.insertBefore(g,s);
+  }(document,"script",new Date));
+
+= render 'layouts/partials/inline_js/cut_the_mustard'
+- unless third_party
+  = render 'layouts/partials/inline_js/fonts_loader'
+= render 'layouts/partials/inline_js/grunticon'
+
+= render 'layouts/partials/inline_js/require_js_config'
+- if (yield :async_js).present?
+  = render 'layouts/partials/inline_js/require_js_async', script_name: "#{yield :async_js}"

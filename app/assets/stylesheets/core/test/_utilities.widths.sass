@@ -1,0 +1,16 @@
+@import true
+
+// @import "../utilities/utilities.widths";
+
++test-module("[mixin] widths")
+  +test("it should output fractional width classes for a given set of denominations")
+    +assert
+      +output
+        // @include inuit-widths(1 2 3);
+
+
+      +expect
+        // .u-1\/1 { width: 100%; }
+        // .u-1\/2 { width: 50%; }
+        // .u-1\/3 { width: 33.3333%; }
+        // .u-2\/3 { width: 66.6666%; }

@@ -1,0 +1,54 @@
+@import true
+
+@import ../settings/settings.core
+@import ../tools/tools.font-size
+
+=test-inuit-old-ie-before
+  $inuit-oldIE: true !global
+
++test-module("[mixin] inuit-font-size")
+  +test("it should output a font-size and line-height based on a given input")
+    +assert
+      +output
+        +inuit-font-size(16px)
+
+
+      +expect
+        font-size: 1rem
+        line-height: 1.5
+
+
+  +test("it should output a font-size and line-height when specifying a line-height")
+    +assert
+      +output
+        +inuit-font-size(18px, 2)
+
+
+      +expect
+        font-size: 1.125rem
+        line-height: 2
+
+
+  +test("it should output a font-size as important when passing true")
+    +assert
+      +output
+        +inuit-font-size(21px, $important: true)
+
+
+      +expect
+        font-size: 1.3125rem !important
+        line-height: 1.14286 !important
+
+
+  +test("it should output a font-size and line-height when supporting old ie")
+    +test-inuit-old-ie-before
+
+    +assert
+      +output
+        +inuit-font-size(21px)
+
+
+      +expect
+        font-size: 21px
+        font-size: 1.3125rem
+        line-height: 1.14286
