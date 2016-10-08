@@ -1,0 +1,10 @@
+= render 'styleguide/partials/shared'
+
+.sgPaperMaterial.styleguide-intro.copy--body.context--content
+  .u-clearfix
+    %h1.u-h1 Bellroy Specific
+    %p
+      These are helper classes which provide often used styling specific to BL.
+
+- @app.get_css("core/utilities/_bl_specific").each do |css|
+  = render "styleguide/partials/snippet", properties: css

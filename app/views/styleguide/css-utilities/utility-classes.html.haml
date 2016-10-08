@@ -1,0 +1,10 @@
+= render 'styleguide/partials/shared'
+
+.sgPaperMaterial.sgContext--content
+  .u-clearfix
+    %h1.u-h1 General Utility Classes
+    %p
+      These are single responsibility classes designed to help reduce duplication in our Sass.
+
+- @app.get_css("core/utilities/_utility_classes").each do |css|
+  = render "styleguide/partials/snippet", properties: css

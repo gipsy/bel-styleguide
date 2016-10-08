@@ -1,13 +1,12 @@
-%div{class: 'o-layout__item u-1/12'}
+#js-stack-list-aside
 
-  #js-stack-list-aside
-
-    - properties[:groups].each_with_index do |group, i|
-      
-      .card.nav--left__group{class: (i > 0) ? "nav--left__group--linked" : ""}
+  - properties[:groups].each_with_index do |group, i|
+    
+    .u-margin-bottom-small
+      .sgPaperMaterial.sgNav--left__group.o-box--small{class: (i > 0) ? "sgNav--left__group--linked" : ""}
         
         - if group[:title]
-          %label{class: 'nav--left__title copy--h5', for: "ac-#{group[:section]}"}
+          %label{class: 'sgNav--left__title', for: "ac-#{group[:section]}"}
             = group[:title]
 
         - group[:items].each do |item|

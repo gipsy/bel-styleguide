@@ -6,9 +6,6 @@
       :title: "Grids"
       :items:
         -
-          :name: "Proportional Grid"
-          :slug: "proportional-grid"
-        -
           :name: "Responsive Grid"
           :slug: "responsive-grid"
     -
@@ -103,33 +100,33 @@
         -
           :name: "Design Palette"
           :slug: "colours"
-        -
-          :name: "UI Colours"
-          :slug: "ui-colours"
-        -
-          :name: "Destination Next Colors"
-          :slug: "colors-next"
+        # -
+        #   :name: "UI Colours"
+        #   :slug: "ui-colours"
+        # -
+        #   :name: "Destination Next Colors"
+        #   :slug: "colors-next"
         -
           :name: "Typography"
           :slug: "typography"
-    -
-      :title: "Icons"
-      :items:
-        -
-          :name: "Destination"
-          :slug: "destination-icons"
-        -
-          :name: "Interests"
-          :slug: "interests-icons"
-        -
-          :name: "Interface"
-          :slug: "interface-icons"
-        -
-          :name: "Need to Know"
-          :slug: "need-to-know-icons"
-        -
-          :name: "Weather"
-          :slug: "weather-icons"
+    # -
+    #   :title: "Icons"
+    #   :items:
+    #     -
+    #       :name: "Destination"
+    #       :slug: "destination-icons"
+    #     -
+    #       :name: "Interests"
+    #       :slug: "interests-icons"
+    #     -
+    #       :name: "Interface"
+    #       :slug: "interface-icons"
+    #     -
+    #       :name: "Need to Know"
+    #       :slug: "need-to-know-icons"
+    #     -
+    #       :name: "Weather"
+    #       :slug: "weather-icons"
   :ui_components:
     -
       :title: "Components"

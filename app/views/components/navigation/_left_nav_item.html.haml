@@ -7,11 +7,11 @@
   item_classlist = "#{item[:extra_style]} js-#{item[:section]}-item icon--chevron-right--after icon--body-grey--after"
   item_classlist += " #{item[:active] ? 'is-active' : ''}"
   if item[:icon]
-    item_classlist += " nav--left__item--icon icon--#{item[:icon]}--before icon--body-grey--before"
+    item_classlist += " sgNav--left__item--icon icon--#{item[:icon]}--before icon--body-grey--before"
   end
 
-%a.nav--left__item{href: item_href, class: "#{item_classlist}", data: item_data}<
+%a.sgNav--left__item{href: item_href, class: "#{item_classlist}", data: item_data}<
   = item_title
 
   - if item[:count]
-    %span{class: 'nav--left__item__facet'} (#{item[:count]})
+    %span{class: 'sgNav--left__item__facet'} (#{item[:count]})

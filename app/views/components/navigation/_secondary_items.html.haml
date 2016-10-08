@@ -1,7 +1,7 @@
 - items.each do |item|
 
   - if item[:submenu]
-    .nav__item.nav__submenu__trigger.js-secondary-nav-submenu
+    .sgNav__item.sgNav__submenu__trigger.js-secondary-nav-submenu
       = render "components/navigation/nav_item", item: item, active: item[:current] ? 'is-current' : nil
 
   - else

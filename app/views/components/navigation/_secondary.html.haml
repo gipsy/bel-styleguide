@@ -4,26 +4,26 @@
   items = responsive_items || properties[:items]
   current_item = (items.find {|i| i[:current]} || items.first)[:title]
 
-.nav--secondary__container
+.sgNav--secondary__container
   -# The secondary navigation for small screens
-  .nav--secondary.nav__tabs.wv--hidden-block
-    .grid-wrapper--0
-      .col--one-half
-        .nav--secondary__col.nav--secondary__title.copy--h4
+  .u-hidden.sgNav--secondary.sgNav__tabs
+    .o-layout
+      %div.o-layout__item{class: 'u-1/2'}
+        .sgNav--secondary__col.sgNav--secondary__title
           = !!custom_title ? custom_title.html_safe : current_item
 
-      .col--one-half
-        %a.nav--secondary__other-toggle.nav--secondary__col.js-toggle-active{ data: { toggle_target: ".js-secondary-nav-other-menu", toggle_me: "true" } }
+      %div.o-layout__item{class: 'u-1/2'}
+        %a.sgNav--secondary__other-toggle.sgNav--secondary__col.js-toggle-active{ data: { toggle_target: ".js-secondary-nav-other-menu", toggle_me: "true" } }
           = !!custom_title ? "Sections" : "Other sections"
-          %span.nav--secondary__other-toggle--icon.icon--chevron-down.icon--body-grey
-          %span.nav--secondary__other-toggle--icon.icon--chevron-up.icon--body-grey
+          %span.sgNav--secondary__other-toggle--icon.icon--chevron-down.icon--body-grey
+          %span.sgNnav--secondary__other-toggle--icon.icon--chevron-up.icon--body-grey
 
-  %nav.wv--split--right.nav--secondary.js-secondary-nav-other-menu.nav--secondary--categories(role="navigation" aria-label="Category navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement")
-    %h6.accessibility Category navigation
+  %nav.o-block--right.sgNav--secondary.js-secondary-nav-other-menu.sgNav--secondary--categories(role="navigation" aria-label="Category navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement")
+    %h6.u-accessibility Category navigation
 
-    .wv--nav--inline.split--right__inner{ class: !!responsive_items ? "wv--block" : "" }
+    .o-list-inline{ class: !!responsive_items ? "o-block" : "" }
       = render :partial => "components/navigation/secondary_items", locals: { items: properties[:items] }
 
     - if !!responsive_items && responsive_items.length > 0
-      .wv--nav--inline.split--right__inner.wv--hidden-block
+      .o-list-inline.o-block--right.u-hidden
         = render :partial => "components/navigation/secondary_items", locals: { items: responsive_items }

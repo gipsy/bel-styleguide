@@ -16,7 +16,7 @@ module Bellroy
     end
 
     initializer :assets do |config|
-      # Rails.application.config.assets.paths << root.join('node_modules/rizzo-next/dist')
+      # Rails.application.config.assets.paths << root.join('node_modules/')
     end
   end
 end

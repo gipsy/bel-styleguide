@@ -6,7 +6,7 @@ module Bellroy
 
     # token used for encrypting redirected links
     # TODO: enable configuration on a per-app basis
-    SECRET = "akhd29283hdiwfch39823hfnjdsvcknjwoifuh32r9ih2foijqlkwdjalkjndoiauenhfdr928r9hfrncdoiuh398fd2h3"
+    SECRET = "put_appropriate_token_here"
     
     def self.encrypt(url = "")
       URI.encode(encryptor.encrypt_and_sign(url))

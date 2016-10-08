@@ -1,6 +1,6 @@
 - content_for(:async_js) {"styleguide"}
 - content_for(:secondary) do
-  = ui_component("place_title", properties: @app.page_title)
+  = ui_component("location_title", properties: @app.page_title)
   = ui_component("navigation/secondary", properties: @app.secondary_nav_items)
 
 - content_for :app_require_config do

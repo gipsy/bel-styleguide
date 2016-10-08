@@ -6,30 +6,33 @@
 
 %body
 
-  .page.js-wrapper
+  .sgPage.js-wrapper#page
     .sgNav
       .o-wrapper
+        %a.sgLogo{href: 'http://'}
         .o-list-inline
-          %a{href: 'http://'}
           - @app.primary_nav_items.each do |item|
-            %a.o-list-inline__item{ href: "#{item[:slug]}" }<
+            %a.o-list-inline__item.sgNav__item{ href: "#{item[:slug]}" }<
               = item[:name]
 
-    .sgSecondaryNav
+    .sgNav--secondary
       .o-wrapper
-        .row__inner.row__inner--secondary.row__inner--full-width
+        .o-block__relative
           = yield :secondary
 
-      .o-wrapper
+    .o-wrapper.u-margin-top-small
+      .o-layout
         - if @app.left_nav_items.present?
-          = ui_component('navigation/left', properties: @app.left_nav_items)
+          %div.o-layout__item{class: 'u-1/4'}
+            = ui_component('navigation/left', properties: @app.left_nav_items)
 
-        .main-content.stack#js-main-content
-          = yield
+        %div.o-layout__item{class: 'u-3/4'}
+          .main-content#js-main-content
+            = yield
 
-      = ui_component('lightbox')
-      %script#tmpl-preloader{ type: 'text/html' }
-        = ui_component('preloader')
+    = ui_component('lightbox')
+    %script#tmpl-preloader{ type: 'text/html' }
+      = ui_component('preloader')
 
   .js-config.is-hidden
     = render 'layouts/partials/snippets/footer_js', third_party: false

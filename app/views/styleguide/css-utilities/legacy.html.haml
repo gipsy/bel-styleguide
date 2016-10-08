@@ -1,0 +1,10 @@
+= render 'styleguide/partials/shared'
+
+.sgPaperMaterial.sgContext--content
+  .u-clearfix
+    %h1.u-h1 Legacy Support
+    %p
+      These classes can be used to help our features degrade gracefully in older browsers.
+
+- @app.get_css("core/utilities/_legacy").each do |css|
+  = render "styleguide/partials/snippet", properties: css

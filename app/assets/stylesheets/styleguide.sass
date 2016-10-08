@@ -128,8 +128,34 @@ $inuit-offsets: true
 @import core/utilities/utilities.spacing
 @import core/utilities/utilities.print
 @import core/utilities/utilities.hide
+@import core/utilities/utilities.accessibility
 
-// COMPONENTS
+// MAIN COMPONENTS
 //
 // Build and include your project’s UI Compoments here.
+@import components/LocationTitle
+
+
+//  =======================
+//  bellroy specific styles
+//  =======================
+
+// BL SPECIFIC VARIABLES
+@import bl-specific/variables/colour_palette
+
+// BL SKIN COMPONENTS
+@import bl-specific/components/blLocationTitle
+
+
+//  =========================
+//  styleguide related styles
+//  =========================
+
+// SG SPECIFIC VARIABLES
+@import styleguide/variables/palette
+
+// SG COMPONENTS
+@import styleguide/components/sgPage
+@import styleguide/components/sgNav
+@import styleguide/components/sgPaperMaterial
 
