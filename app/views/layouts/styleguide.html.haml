@@ -27,10 +27,9 @@
             = ui_component('navigation/left', properties: @app.left_nav_items)
 
         %div.o-layout__item{class: 'u-3/4'}
-          .main-content#js-main-content
+          .sgPage__main-content#js-main-content
             = yield
 
-    = ui_component('lightbox')
     %script#tmpl-preloader{ type: 'text/html' }
       = ui_component('preloader')
 

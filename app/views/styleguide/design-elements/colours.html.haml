@@ -1,16 +1,15 @@
 = render 'styleguide/partials/shared'
 
-.sgPaperMaterial.sgContext--content.js-colours
-  .o-box
-    .u-clearfix
-      %h1 Colour Palette
-      = render 'styleguide/partials/colour_finder'
+.o-box.sgPaperMaterial.sgContext--content.js-colours
+  .u-clearfix
+    %h1 Colour Palette
+    = render 'styleguide/partials/colour_finder'
 
-    %p
-      This is the primary and secondary colour palettes as described in the PSD styleguide and in
-      %a{href: 'https://github.com/bel-front/blob/master/app/assets/stylesheets/sass/variables/_colour_palette.sass'}
-        colour_palette.sass
+  %p
+    This is the primary and secondary colour palettes as described in the PSD styleguide and in
+    %a{href: 'https://github.com/bel-front/blob/master/app/assets/stylesheets/sass/variables/_colour_palette.sass'}
+      colour_palette.sass
 
-    .u-margin-top-small
-      - @app.get_colours('../../assets/stylesheets/bl-specific/variables/_colour_palette.sass').each do |group|
-        = render 'styleguide/partials/colour', group: group
+  .u-margin-top-small
+    - @app.get_colours('../../assets/stylesheets/bl-specific/variables/_colour_palette.sass').each do |group|
+      = render 'styleguide/partials/colour', group: group

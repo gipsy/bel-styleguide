@@ -1,9 +1,10 @@
 = render 'styleguide/partials/shared'
 
-.Typography
+// needs discussion
+.typography
   .o-box.sgPaperMaterial
 
-    .styleguide-intro.copy--body.context--content
+    .sgIntro.copy--body.sgContext--content
       %h1.u-h1 Typography
       %p
         We achieve styling through opt in classes and do not style elements globally. This is to reduced the number of style collisions across projects. Elements can inherit styles from .copy--body or otherwise applied directly.
@@ -14,7 +15,7 @@
       %p
         They get margins when they are inside a wrapper with a class of context--content. We may need to work on the naming but the principle is solid.
 
-    .styleguide-intro.syleguide-block.copy--body.context--content.styleguide-typography-block
+    .sgIntro.sgBlock.copy--body.context--content.sgTypography__block
       %p.copy--label
         Headings:
         
@@ -38,7 +39,7 @@
         h5
       .u-h5{title: ".u-h5"} The quick, brown fox
 
-    .styleguide-intro.styleguide-block.copy--body.context--content.theme--dark
+    .sgIntro.sgBlock.copy--body.context--content.theme--dark
       %p.copy--label
         Headings within a parent of .theme--dark:
 
@@ -48,7 +49,7 @@
       .u-h4{title: ".u-h4"} The quick, brown fox
       .u-h5{title: ".u-h5"} The quick, brown fox
 
-    .styleguide-intro.styleguide-block.copy--body.context--content
+    .sgIntro.sgBlock.copy--body.context--content
       %p.copy--label
         Other Copy:
 

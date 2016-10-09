@@ -6,7 +6,7 @@ define([
 
   "use strict";
   function LocationTitleNav() {
-    this.$el = $(".js-LocationTitle");
+    this.$el = $(".js-location-title");
 
     if (!this.navItemTemplate) {
       this.navItemTemplate = $("#tmpl-nav-item").text();
@@ -18,7 +18,7 @@ define([
   }
 
   LocationTitleNav.prototype.init = function() {
-    $.each(this.$el.find(".js-LocationTitle-nav"), function(i, el) {
+    $.each(this.$el.find(".js-location-title-nav"), function(i, el) {
       this.fetchNavItems(el);
     }.bind(this));
 

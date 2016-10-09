@@ -1,8 +1,9 @@
+// TODO needs deeper investigation what this used for
 - if legacy_header
-  .content-wrapper.navigation-wrapper
+  .o-wrapper.navigation-wrapper
     = render 'layouts/partials/snippets/primary_navigation_bar', search: search, user_nav: user_nav, include_js: include_js, nav_primary: nav_primary, responsive: responsive
 - unless legacy_header
-  .content-wrapper.navigation-wrapper.rizzo-navigation.rizzo-next
+  .content-wrapper.navigation-wrapper.bellroy-navigation
     = render :file => 'header'
 
 - if ads_header

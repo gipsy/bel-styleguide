@@ -1,16 +1,16 @@
-.styleguide-block__description.card.copy--body
-  .styleguide-block__tabs
+.sgBlock__description.sgPaperMaterial.copy--body
+  .sgBlock__tabs
     
     - if properties[:styleguide_title].present?
-      .copy--h2.styleguide-block__heading #{properties.delete(:styleguide_title)}
+      .u-h2.sgBlock__heading #{properties.delete(:styleguide_title)}
     - if properties[:styleguide_description].present?
       %p #{properties.delete(:styleguide_description)}
     
-    .styleguide__partial.copy--body.js-styleguide-partial
+    .sg__partial.copy--body.js-styleguide-partial
       \= ui_component('#{component}', properties:
       %b {as_below}
       )
-    %input.styleguide__input-copy.styleguide__partial.copy--body.is-hidden{ value: "= ui_component('#{component}', properties: properties)" }
+    %input.sg__input-copy.styleguide__partial.copy--body.is-hidden{ value: "= ui_component('#{component}', properties: properties)" }
     %pre.styleguide.copy--body.language-ruby
       %code
         - formatted = JSON.pretty_generate properties

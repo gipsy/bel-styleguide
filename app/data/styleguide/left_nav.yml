@@ -55,26 +55,11 @@
       :title: "Utils"
       :items:
         -
-          :name: "Alert"
-          :slug: "alert"
-        -
           :name: "Asset Reveal"
           :slug: "asset-reveal"
         -
-          :name: "AutoComplete"
-          :slug: "autocomplete"
-        -
-          :name: "Debounce"
-          :slug: "debounce"
-        -
           :name: "Image Helper"
           :slug: "image-helper"
-        -
-          :name: "Konami"
-          :slug: "konami"
-        -
-          :name: "Lightbox"
-          :slug: "lightbox"
         -
           :name: "Link To"
           :slug: "link-to"
